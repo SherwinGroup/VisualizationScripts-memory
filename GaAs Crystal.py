@@ -67,7 +67,7 @@ bcc = np.array([
 #     [ii for ii in itt.product(*[[0, 1, 2]]*3)]
 # )
 
-tilingFactor = 3
+tilingFactor = 1
 globalOffsets = np.array(
     [ii for ii in itt.product(*[range(tilingFactor)]*3)]
 )
@@ -211,7 +211,7 @@ mesh = gl.GLMeshItem(vertexes = oneohoh, faces=face, faceColors = colors, smooth
 mesh.setGLOptions('translucent')
 wid.addItem(mesh)
 
-x = pd.ExcelFile(os.path.join(directory, filename))
+
 wid.show()
 app.exec_()
 
