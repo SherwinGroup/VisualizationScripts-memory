@@ -57,9 +57,9 @@ def analyzerCurve(alpha=0, gamma=0, dop=1, eta=0.25):
     return [x, int]
 
 def storeCurve():
+
+
     curve = window.recalculate()
-
-
     window.plot(*curve, name=",".join([":".join([str(ii) for ii in jj])
                                         for jj in window.getCurrentValues()]))
 
@@ -71,10 +71,10 @@ app = QtWidgets.QApplication([])
 window = ipg.ManipulateWindow()
 window.plot(*analyzerCurve())
 window.setManipulators([
-    ("&alpha;", [-90, 90, 0, 1]),
-    ("&gamma;", [-45, 45, 0, 1]),
-    ("DOP", [0, 1, 1, 0.01]),
-    ("&eta;", [0.2, 0.3, 0.25, 0.01]),
+    ("&alpha;", -90, 90, 0, 1),
+    ("&gamma;", -45, 45, 0, 1),
+    ("DOP", 0, 1, 1, 0.01),
+    ("&eta;", 0.2, 0.3, 0.25, 0.01),
 ])
 window.setCallable(analyzerCurve)
 
@@ -94,9 +94,9 @@ window.addLegend()
 
 window.show()
 
-from pyqtgraph.console import ConsoleWidget as CW
-c = CW(namespace={"w":window, "wid":QtWidgets, "ipg":ipg})
-c.show()
+# from pyqtgraph.console import ConsoleWidget as CW
+# c = CW(namespace={"w":window, "wid":QtWidgets, "ipg":ipg})
+# c.show()
 
 
 
