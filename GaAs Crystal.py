@@ -86,6 +86,31 @@ ptOpts = {
             'glBlendFunc': (GL_SRC_ALPHA, GL_ONE),
         }
 
+#### hard-code adding the interconnects
+bonds = [np.array([0, 0, 0, 0.25, 0.25, 0.25]),
+    np.array([0.25, 0.25, 0.25, 0, 0.5, 0.5]),
+    np.array([0.25, 0.25, 0.25, 0.5, 0, 0.5]),
+    np.array([0.25, 0.25, 0.25, 0.5, 0.5, 0]),
+    np.array([0.5, 0.5, 0, 0.75, 0.75, 0.25]),
+    np.array([0.75, 0.75, 0.25,  1, 1, 0]),
+    np.array([ 0, 0.5, 0.5, 0.25, 0.75, 0.75]),
+    np.array([0.5, 0, 0.5, 0.75, 0.25, 0.75]),
+    np.array([0.25, 0.75, 0.75, 0, 1, 1]),
+    np.array([0.25, 0.75, 0.75, 0.5, 1, 0.5]),
+    np.array([0.25, 0.75, 0.75, 0.5, 0.5, 1]),
+    np.array([0.75, 0.25, 0.75, 0.5, 0.5, 1]),
+    np.array([0.75, 0.25, 0.75, 1, 0, 1]),
+    np.array([0.75, 0.25, 0.75, 1, 0.5, 0.5]),
+    np.array([1, 0.5, 0.5, 0.75, 0.75, 0.25]),
+    np.array([0.5, 1, 0.5, 0.75, 0.75, 0.25])]
+
+for bond in bonds:
+    ln = bond.reshape(2, 3)
+    line = gl.GLLinePlotItem(pos = ln, color = (0.66, 0.66, 1, .5),
+                             width=3)
+    wid.addItem(line)
+
+
 for globalOffset in globalOffsets:
     Ga = []
     for coord in bcc:
@@ -155,7 +180,7 @@ oneoneonebar = np.array([ #[1 1 -1]
 # mx = globalOffsets.max() +1
 # oneoneone = np.array([ # (111)
 #     [0, 0, mx],
-#     [0, mx, 0],
+#     [0, mx, 0], 
 #     [mx, 0, 0],
 # ])
 #
@@ -207,7 +232,7 @@ colors = np.array([[0.5, 0.5, 0.5, 0.75]]*2)
 # mesh.setGLOptions('translucent')
 # wid.addItem(mesh)
 
-mesh = gl.GLMeshItem(vertexes = oneohoh, faces=face, faceColors = colors, smooth=False)
+mesh = gl.GLMeshItem(vertexes = oneoneoh, faces=face, faceColors = colors, smooth=False)
 mesh.setGLOptions('translucent')
 wid.addItem(mesh)
 

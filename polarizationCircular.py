@@ -7,6 +7,7 @@ Created on Thu Sep 25 15:41:33 2014
 
 from __future__ import division
 import numpy as np
+import interactivePG as ipg
 from PyQt5 import QtWidgets, QtCore
 import pyqtgraph as pg
 import pyqtgraph.opengl as gl
